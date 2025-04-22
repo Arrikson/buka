@@ -12,64 +12,67 @@
       background: linear-gradient(135deg, #0a0f2c, #1e2547);
       color: #f8f9fa;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 30px;
     }
-    .card {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      background: #fff;
-      color: #333;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      color: #222;
       border-radius: 16px;
-      overflow: hidden;
+      padding: 40px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
-    .capa-container {
-      flex: 1 1 50%;
-      background-color: #0a0f2c;
+    .page {
+      display: none;
+      padding: 20px 0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .page.active { display: block; }
+
+    .page-controls {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: space-between;
+      margin-top: 20px;
     }
-    .capa-container img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
+    .btn {
+      background: #0a0f2c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
-    .info {
-      flex: 1 1 50%;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .info h1 { font-size: 2.2rem; margin-bottom: 10px; color: #0a0f2c; }
-    .info h2 { font-size: 1.2rem; color: #555; margin-bottom: 20px; }
-    .info p { font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
-    .price { font-size: 1.6rem; color: #d99e2b; font-weight: bold; margin-bottom: 30px; }
 
     .buy-section {
+      display: none;
+      margin-top: 40px;
       background-color: #f6f6f6;
       padding: 20px;
       border-radius: 12px;
-      margin-top: auto;
     }
+
     .buy-section ul {
       list-style: none;
       padding-left: 0;
       margin-bottom: 15px;
     }
+
     .buy-section li {
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
+    .hidden-text {
+      filter: blur(8px);
+      user-select: none;
+    }
+
     .copy-btn {
       cursor: pointer;
       margin-left: 10px;
@@ -84,77 +87,86 @@
       font-weight: bold;
       color: #0a0f2c;
     }
-    .cta span {
-      display: block;
-      font-size: 1rem;
-      margin-top: 4px;
-      color: #333;
-    }
 
     .upload-form {
       margin-top: 20px;
     }
 
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-weight: bold;
-      background-color: #0a0f2c;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .card { flex-direction: column; }
-      .capa-container, .info { flex: 1 1 100%; padding: 20px; }
+    input[type="file"] {
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="capa-container">
-      <img src="/static/CAPA.png" alt="Capa do livro Eu Sou Aurora">
+  <div class="container">
+    <div class="page active" id="page1">
+      <h2>🌕 Eu Sou Aurora – Parte 1</h2>
+      <p>“Quando acordei naquela manhã, soube que algo havia mudado. Não era o céu nublado, nem o silêncio na casa — era em mim. Meu nome é Aurora, e esta é a história do meu recomeço...”</p>
     </div>
-    <div class="info">
-      <h1>Eu Sou Aurora</h1>
-      <h2>Um drama psicológico envolvente</h2>
-      <p><em>“Eu sou Aurora”</em> é um drama psicológico intenso que mergulha o leitor numa ficção contemporânea repleta de mistério e suspense.</p>
-      <div class="price">4.990,95 Kz - Preço promocional</div>
+    <div class="page" id="page2">
+      <p>Não se trata de um romance comum. Aurora é uma jovem mulher que decide deixar tudo para trás — trabalho, família, e até a sua identidade. Um reencontro com o passado desperta memórias dolorosas e verdades ocultas.</p>
+    </div>
+    <div class="page" id="page3">
+      <p>“Eu sou Aurora” é um drama psicológico envolvente que mergulha o leitor numa ficção contemporânea repleta de mistério, coragem e transformação. <br><br>Se você chegou até aqui, é porque essa história tocou algo em você. Pronta para continuar?</p>
+      <button class="btn" onclick="mostrarCompra()">Quero o meu 📖</button>
+    </div>
 
-      <div class="buy-section">
-        <h3>💳 Como Comprar:</h3>
-        <ul>
-          <li>
-            <strong>Multicaixa Express:</strong> <span id="tel">948 850 282</span>
-            <button class="copy-btn" onclick="copiarTexto('tel')">📋</button>
-          </li>
-          <li>
-            <strong>IBAN:</strong><br>
-            <span id="iban">AO06 0040 0000 8329 8117 1015 2</span>
-            <button class="copy-btn" onclick="copiarTexto('iban')">📋</button>
-          </li>
-        </ul>
-        <div class="cta">
-          📩 Envie o comprovativo para:
-          <span>+244 948 850 282 (WhatsApp)</span>
-        </div>
+    <div class="page-controls">
+      <button class="btn" onclick="navegar(-1)">⬅ Anterior</button>
+      <button class="btn" onclick="navegar(1)">Próxima ➡</button>
+    </div>
 
-        <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-          <label for="comprovativo">📤 Envie o comprovativo em PDF :</label><br><br>
-          <input type="file" name="comprovativo" accept=".pdf" required><br>
-          <button type="submit">📨 Enviar Comprovativo</button>
-        </form>
+    <div class="buy-section" id="compra">
+      <h2>💳 Como Comprar</h2>
+      <p><strong>Preço:</strong> 4.990,95 Kz (promoção)</p>
+      <ul>
+        <li>
+          <strong>Multicaixa Xpress:</strong>
+          <span id="tel" class="hidden-text">948 850 282</span>
+          <button class="copy-btn" onclick="copiarTexto('tel')">📋</button>
+        </li>
+        <li>
+          <strong>IBAN:</strong>
+          <span id="iban" class="hidden-text">AO06 0040 0000 8329 8117 1015 2</span>
+          <button class="copy-btn" onclick="copiarTexto('iban')">📋</button>
+        </li>
+      </ul>
+      <div class="cta">
+        📩 Envie o comprovativo para:
+        <span>+244 948 850 282 (WhatsApp)</span>
       </div>
+
+      <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+        <label for="comprovativo">📤 Comprovativo em PDF:</label><br>
+        <input type="file" name="comprovativo" accept=".pdf" required><br>
+        <button type="submit">📨 Enviar</button>
+      </form>
     </div>
   </div>
 
   <script>
+    let paginaAtual = 1;
+
+    function navegar(direcao) {
+      const totalPaginas = 3;
+      const proxima = paginaAtual + direcao;
+      if (proxima >= 1 && proxima <= totalPaginas) {
+        document.getElementById(`page${paginaAtual}`).classList.remove('active');
+        paginaAtual = proxima;
+        document.getElementById(`page${paginaAtual}`).classList.add('active');
+      }
+    }
+
+    function mostrarCompra() {
+      document.getElementById("compra").style.display = "block";
+    }
+
     function copiarTexto(id) {
-      const texto = document.getElementById(id).innerText;
+      const span = document.getElementById(id);
+      const texto = span.textContent;
       navigator.clipboard.writeText(texto).then(() => {
         alert("Copiado: " + texto);
+        span.classList.remove("hidden-text");
       });
     }
   </script>
