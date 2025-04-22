@@ -78,5 +78,9 @@ async def pagina_3(request: Request):
 async def pagina_4(request: Request):
     return templates.TemplateResponse("pagina-4.html", {"request": request})
 
+@app.get("/finalizar-compra", response_class=HTMLResponse)
+async def finalizar_compra(request: Request):
+    return templates.TemplateResponse("compra-finalizada.html", {"request": request})
+
 
 
