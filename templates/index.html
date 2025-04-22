@@ -3,120 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buka - Venda de Livros</title>
+  <title>Buka - Eu Sou Aurora</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-      margin: 0;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(135deg, #0a0f2c, #1e2547);
+      color: #f8f9fa;
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
     }
 
-    .container {
-      max-width: 700px;
+    .card {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
       background: #fff;
-      padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-      text-align: center;
+      color: #333;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #222;
+    .capa-container {
+      flex: 1 1 50%;
+      background-color: #0a0f2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .capa {
+    .capa-container img {
       width: 100%;
-      max-width: 400px;
+      max-width: 100%;
       height: auto;
       border-radius: 12px;
-      margin: 20px auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
-    .capa:hover {
-      transform: scale(1.03);
+    .info {
+      flex: 1 1 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    p {
-      font-size: 1.05rem;
+    .info h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #0a0f2c;
+    }
+
+    .info h2 {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .info p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    h2 {
-      margin-top: 30px;
-      font-size: 1.4rem;
-      color: #444;
+    .price {
+      font-size: 1.6rem;
+      color: #d99e2b;
+      font-weight: bold;
+      margin-bottom: 30px;
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
+    .buy-section {
+      background-color: #f6f6f6;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: auto;
+    }
+
+    .buy-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 15px;
+    }
+
+    .buy-section li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
       margin-top: 10px;
+      font-weight: bold;
+      color: #0a0f2c;
     }
 
-    ul li {
-      padding: 10px 0;
-      font-weight: 500;
+    .cta span {
+      display: block;
+      font-size: 1rem;
+      margin-top: 4px;
+      color: #333;
     }
 
-    strong {
-      color: #000;
-    }
-
-    .highlight {
-      background-color: #eaf6ff;
-      padding: 10px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 25px 20px;
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
       }
 
-      h1 {
-        font-size: 1.6rem;
+      .capa-container, .info {
+        flex: 1 1 100%;
+        padding: 20px;
       }
 
-      h2 {
-        font-size: 1.2rem;
+      .info {
+        padding-top: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>📖 Livro Digital à Venda</h1>
-    <img src="CAPA.png" alt="Capa do Livro Eu sou Aurora" class="capa"/>
+  <div class="card">
+    <div class="capa-container">
+      <img src="CAPA.png" alt="Capa do livro Eu Sou Aurora">
+    </div>
+    <div class="info">
+      <h1>Eu Sou Aurora</h1>
+      <h2>Um drama psicológico envolvente</h2>
+      <p><em>“Eu sou Aurora”</em> é um drama psicológico intenso que mergulha o leitor numa ficção contemporânea repleta de mistério e suspense. Uma história poderosa que prende do início ao fim e faz refletir sobre identidade, dor e superação.</p>
+      <div class="price">2.500 Kz</div>
 
-    <p><strong>Título:</strong> Eu sou Aurora</p>
-    <p><strong>Preço:</strong> <span class="highlight">2.500 Kz</span></p>
-
-    <p><em>“Eu sou Aurora”</em> é um drama psicológico intenso que mergulha o leitor numa ficção contemporânea repleta de mistério e suspense. Uma história poderosa que prende do início ao fim e faz refletir sobre identidade, dor e superação.</p>
-
-    <h2>💳 Como Comprar</h2>
-    <ul>
-      <li><strong>Multicaixa Express:</strong> 948 850 282</li>
-      <li><strong>Transferência Bancária (IBAN):</strong><br> AO06 0040 0000 8329 8117 1015 2</li>
-    </ul>
-
-    <p>📩 Após o pagamento, envie o comprovativo para <strong>+244 948 850 282</strong> (WhatsApp)</p>
+      <div class="buy-section">
+        <h3>💳 Como Comprar:</h3>
+        <ul>
+          <li><strong>Multicaixa Express:</strong> 948 850 282</li>
+          <li><strong>IBAN:</strong><br> AO06 0040 0000 8329 8117 1015 2</li>
+        </ul>
+        <div class="cta">
+          📩 Envie o comprovativo para:
+          <span>+244 948 850 282 (WhatsApp)</span>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
