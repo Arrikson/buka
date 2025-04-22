@@ -4,46 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buka - Venda de Livros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
       color: #333;
-      padding: 20px;
       margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 700px;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
       text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
     }
 
     .capa {
       width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .capa:hover {
+      transform: scale(1.03);
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    ul li {
+      padding: 10px 0;
+      font-weight: 500;
+    }
+
+    strong {
+      color: #000;
+    }
+
+    .highlight {
+      background-color: #eaf6ff;
+      padding: 10px;
       border-radius: 8px;
-      margin-bottom: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
- <div class="container">
-  <h1>📚 Livro Digital à Venda</h1>
-  <img src="CAPA.png" alt="Capa do Livro" class="capa"/>
-  <p><strong>Título:</strong> Eu sou Aurora</p>
-  <p><strong>Preço:</strong> 2500 Kz</p>
+  <div class="container">
+    <h1>📖 Livro Digital à Venda</h1>
+    <img src="CAPA.png" alt="Capa do Livro Eu sou Aurora" class="capa"/>
 
-  <p><em>“Eu sou Aurora”</em> é um drama psicológico intenso, que mergulha o leitor numa ficção contemporânea repleta de mistério e suspense. Uma história poderosa que prende do início ao fim e faz refletir sobre identidade, dor e superação. Ideal para quem gosta de emoções fortes e narrativas profundas.</p>
+    <p><strong>Título:</strong> Eu sou Aurora</p>
+    <p><strong>Preço:</strong> <span class="highlight">2.500 Kz</span></p>
 
-  <h2>💳 Como Comprar</h2>
-  <ul>
-    <li><strong>Multicaixa Express:</strong> 948 850 282</li>
-    <li><strong>Transferência Bancária (IBAN):</strong> AO06 0040 0000 8329 8117 1015 2</li>
-  </ul>
-  <p>📩 Após o pagamento, envie o comprovativo para <strong>+244 948 850 282</strong> (WhatsApp)</p>
-</div>
+    <p><em>“Eu sou Aurora”</em> é um drama psicológico intenso que mergulha o leitor numa ficção contemporânea repleta de mistério e suspense. Uma história poderosa que prende do início ao fim e faz refletir sobre identidade, dor e superação.</p>
+
+    <h2>💳 Como Comprar</h2>
+    <ul>
+      <li><strong>Multicaixa Express:</strong> 948 850 282</li>
+      <li><strong>Transferência Bancária (IBAN):</strong><br> AO06 0040 0000 8329 8117 1015 2</li>
+    </ul>
+
+    <p>📩 Após o pagamento, envie o comprovativo para <strong>+244 948 850 282</strong> (WhatsApp)</p>
+  </div>
+</body>
+</html>
 
