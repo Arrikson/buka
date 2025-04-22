@@ -65,7 +65,6 @@ async def upload_comprovativo(comprovativo: UploadFile = File(...)):
 
     return HTMLResponse("<h3>✅ Comprovativo enviado com sucesso! Aguarde a confirmação.</h3>")
 
-    
     @app.get("/pagina-2.html", response_class=HTMLResponse)
 async def pagina_2(request: Request):
     return templates.TemplateResponse("pagina-2.html", {"request": request})
