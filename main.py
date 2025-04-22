@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, Form
+from fastapi import FastAPI, File, UploadFile, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -6,10 +6,23 @@ from hashlib import sha256
 import shutil, os, json
 
 app = FastAPI()
+
 UPLOAD_DIR = "comprovativos"
 DB_FILE = "comprovantes.json"
 
+# Criar pastas se não existirem
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+# Configurar templates
+templates = Jinja2Templates(directory="templates")
+
+# Servir arquivos estáticos (se tiver CSS, JS, imagens...)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Página principal
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 # Carregar comprovantes já usados
 def carregar_comprovantes():
@@ -25,6 +38,7 @@ def salvar_comprovante(hash_comprovativo):
     with open(DB_FILE, "w") as f:
         json.dump(dados, f)
 
+# Upload do comprovativo
 @app.post("/upload")
 async def upload_comprovativo(comprovativo: UploadFile = File(...)):
     content = await comprovativo.read()
